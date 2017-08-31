@@ -1,0 +1,2 @@
+# minutes
+Club Meeting Minutes
