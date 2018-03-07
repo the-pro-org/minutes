@@ -1,0 +1,58 @@
+18 pigeons 27 pigeonholes, gotta up these numbers, these are rookie numbers!!
+
+
+
+Lts. Eaton and Gay present civilian Sec job opportunities
+--------------------------------------------------------------
+recruiting civilian software developers, don't need to enlist
+
+
+defend DoD systems, defend Homeland and US national interests, provide cyber support to military operational and contingency plans
+
+having OS knowledge, networking and security knowledge is great for tool development and reverse engineering
+
+
+'cyber national mission force'
+joint military effort to provide support for military operations
+
+mantech advanced syber training program - naval training pipeline
+
+
+13 national mission teams
+
+68 cyber protection teams
+
+27 combat mission teams
+
+25 support teams
+
+a lot of emphasis on protection
+
+
+
+
+
+more interesting on a daily basis than looking at standard networks on the internet
+
+probably could be doing things which would normally be illegal in industry
+
+GS7 step 7 is the highest starting point up to GS13, 55k starting salary to 96k with 20% sign on bonus
+
+
+from tool development, to scanning for vulnerabilities and securing networks
+
+training pipeline involves python, C and assembly in both windows and linux
+
+Certs are always a plus!
+
+
+
+stuff to do as an undergrad to prepare;
+
+RE, assembly, learn about different kinds of attacks and how they work, getting into the mindset of thinking alternatively (how to break things), learn operating systems, networking
+
+
+ 
+
+
+

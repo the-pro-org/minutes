@@ -1,0 +1,173 @@
+Information security policies:::
+
+>NIST CSF
+->FRAMEWORK FOR IMPROVING CRITICAL INFRASTRUCTURE CYBERSECURITY
+->voluntary guidance based on standards, practices
+
+
+------>Identify
+develop the organizational understanding to manage cybersecurity risk to systems, assets, data and capabilities
+
+* asset management
+* business environment
+* governance
+* risk assessment
+* risk management strategy
+
++ know your network
+	- develop baselines
+	- actively monitor your assets
+	- byod problems
++ identify your attack surfaces
+	- business essentials that introduce vulnerabilities
+	- patch cycles that you may not be able to keep up with
+	- accepted risk
++ regulations
+	- HIPAA
+	- PCI-DSS
+	- CJCSM 6510.01B
+
+> A-CAT
+- A.void risk
+- C.ontrol/mitigate risk
+- A.ccept risk
+- T.ransfer risk
+
+
+------->protect
+develop and implement the appropriate safeguards to ensure the delivery of critical infrastructure services
+
+
+* Access control (PR.AC)
+ 	- least privilege
+ 	- separation of duties
+ 	- rotation of duties
+ 	- mandatory vacations
+
+* Awareness and training (PR.AT)
+	- end users educated to perform duties consistent with related policies
+	
+* Data Security (PR.DS)
+	- secure your security mechanisms
+
+* Information protection processes and procedures (PR.IP)
+
+* Maintenance (PR.MA)
+
+* protective Technology (PR.PT)
+
+
+------->detect
+develop and implement the appropriate activites to identify the occurrence of a cybersecurity event
+
+import previous stuff
+
+
+
+------->respond
+develop and implement the appropriate activites to take action regarding a detected cybersecurity event
+
+* response planning
+	- hot/warm/cold sites
+
+* communications 
+	- PR officer
+	- law enforcement
+	- IT contact
+	- Legal rep
+
+* analysis
+	- honey pot
+	- forensics gathering
+
+* mitigation
+
+* improvements
+	- hotwash
+	- forensics
+	- reverse engineering
+
+* identify two points
+	- Determining weaknesses
+	- what was breached
+
+* ways to contain an incident
+	- block and log unauthorized access
+	- restrict  access to malware
+	- change passwds
+	- some other stuff
+
+------->recover
+develop and implement the appropriate activities ot maintain plans for resilience and to restore any capabilities or services that were impaired due to a cybersecurity event
+
+* Recovery planning
+	- backups
+	- preserve evidence
+
+* Improvements
+
+* Communications
+
+* Understand legal obligations
+
+* notification process
+
+
+> UKY's information security policy example
+
+
+
+>cheesy video
+
+
+
+
+
+>life cycle of a breach
+->discovery
+->investigation
+->assemble response team
+->contact law enforcement
+->employ vendors like forensics, etc
+->begin notification process
+->mail/email notifications
+->respond to inquiries
+->resume normality
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>I'm so sleepy
+
+
+
+
+
+
+
+
+

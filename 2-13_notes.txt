@@ -1,0 +1,244 @@
+2-13-18 // N8 
+-------------------------------------------------------------------------------
+
+Steve's Hardening Linux
+
+make sure not to destroy the purpose of the system
+CentOS VM provided was made for the blue team, not for the red team (training for how to lock down a system, not full of vulnerabilities that are harder to identify and cover)
+
+The Hardening Process:
+ - 1. Know what you're protecting
+ - 2. "Design" vs. "Repair" - "Design" a strong system or "Repair" a weak one
+	For design, start with a baseline configuration so that every device deployed starts off with the same settings
+	Add security in at the beginning
+	development includes security needs
+	scope, time, resources better understood
+	hardly ever happens
+	Then, move on to service configuration, determining how different services necessary for the device's normal operation should be cnofigured
+	> Fix configs
+		lol
+		
+ - 3. Reduce the surface area -
+ - 4. Gain visibility - 
+ - 5. maintain what you've secured -
+
+System Definition;
+> Document the system
+	services provided
+	funcitonality expected - service load?
+	system interconnects and data flows - data transfers for analysis, what will we be talking to?
+	uptime required - five 9s? six 9s?....10 9s? (99.999-99999999% uptime)
+	data classification - possible sensitive information encrypted, integrity of system itself
+>System needs define security posture
+
+System baseline:
+----------------------------------------------
+
+	-> performed prior to system implementation; not really applicable if system is already set up; part of "Design" rather than repair
+
+	defend against resource exhaustion on writeable partitions
+
+	prevent executable code on partitions - noexec
+
+	prevent suid code on partitions - nosuid
+
+	prevent special devices on partitions - nodev  -> FIFOs, tty devices
+
+	separate partitions for /var, /tmp, /var/tmp, /var/log, /home, | /boot    ->use LVM
+
+	sticky bit on world-writeable directories - allow only the owner to edit dir; use this especially on /tmp
+
+	disable extra filestystem drivers - cramfs, FAT, etc; uninstall, get rid of anything you don't need
+
+	after the fact configueration requires backup, repartition, restore
+
+	Network configs; can be done after the fact
+		source routing and reverse path filtering - do not accept source routed packets; if you see a packet come from an illegitimate source, drop it
+		ICMP preferences - redirect things elsewhere? turn it off
+		Broadcast handling -
+		SYN cookies - create a cookie to send to the clientso you don't have to hold onto SYN requests from a possible SYN flood DoS
+		Disable unnecessary interfaces - e.g. wireless
+	
+	Process hardening
+		Core dump controls - contents of memory dumped
+		code execution protections - NX/XD against buffer overflows
+		addr space layout randomization -
+		disable prelink - 
+
+	Mandatory Access control with SELinux - possibly locks things down too hard- don't turn it off though, useful for auditing
+		Not for the faint of heart 
+		not well documented 
+		try but don't rely 
+		
+
+
+
+Should you secure the boot process?
+- depends on the threat model
+
+
+
+
+
+	Users
+		Passwd requirements
+		PAM - controls authentication stuff
+		su and sudo restrictions 
+		restricted shells - some text editors can spawn a shell
+	Warning banners
+		keep legal happy
+		MOTD, local, remote
+		secure the banner files!! - don't want people to deface these
+	SSH
+		primary management interface 
+		SSHv2 only; v1 is bad
+		no root logins; should be a config option; use more secure hashing ( no collisions)
+		approved MAC algorithms
+		timeouts
+		X window forwarding- turn it off; servers should be headless - though it depends on the server
+
+
+
+
+
+
+Surface Area - reduce it
+---------------------------------------------------------
+
+Remove extraneous software
+	set runlevel
+	X windows
+	client sofware - NIS, telnet, etc
+	IPv6? turn off until ready
+	
+Disable and remove extraneous services
+	refer to sys doc
+
+firewall
+	installed and enabled
+	default deny
+	loopback protections 
+
+
+
+
+Visibility
+----------------------------------------------------------
+File integrity monitoring - AIDE + cron check periodically for things that changed
+
+Logging enabled - auditd (SELinux), rsyslog, syslog-ng; get logs off the system if you're in enterprise
+
+Configure addtl logging for greater visibility
+
+Log shipping to maintain integrity
+
+NTP for log correlation; make sure config'd to a trusted NTP server
+
+
+
+Maintenance
+---------------------------------------------------------
+updates
+	automatic or manual? manuel 
+	trusting updates w/ GPG keys
+
+Backups - always have backups
+
+Cron jobs
+	check for unexpected files - sgid, suid
+	check for user/group violations
+	check for persimmon changes :^)
+	scrub shadow files 
+
+
+
+Look into openBSD ??
+
+
+
+
+
+> Exercise
+
+	-> centOS7 VMs
+		apache server
+		mariadb
+		ssh server for remote admin
+
+	->goals are to do some hardening on the box:
+		set baseline runlevel3
+		remove unneccessary software
+		configure firewall
+		identify filesystem, SSH and user config problems	
+
+	Credentials;
+	-------------------------
+	root:CofCtoor
+	admin:admin
+	???defaultuser???:CofCPassword
+
+
+
+
+
+
+
+listen to steve's podcast!
+InfoSec ICU
+	https://podcast.musc.edu/helpful-linux-hardening-commands/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+													    ____________________________
+												      / 			   				 \	
+.     .       .  .   . .   .   . .    +  .	   		 |    ABDUCTED 28 PEOPLE TODAY    |
+  .     .  :     .    .. :. .___---------___.         \__________       _____________/
+       .  .   .    .  :.:. _".^ .^ ^.  '.. :"-_. .  			 \     /
+    .  :       .  .  .:../:            . .^  :.:\.		 		  |   /
+        .   . :: +. :.:/: .   .    .        . . .:\		  		 /   /
+ .  :    .     . _ :::/:               .  ^ .  . .:\		   <  _ /
+  .. . .   . - : :.:./.                        .  .:\
+  .      .     . :..|:                    .  .  ^. .:|
+    .       . : : ..||        .                . . !:|
+  .     . . . ::. ::\(                           . :)/
+ .   .     : . : .:.|. ######              .#######::|
+  :.. .  :-  : .:  ::|.#######           ..########:|
+ .  .  .  ..  .  .. :\ ########          :######## :/
+  .        .+ :: : -.:\ ########       . ########.:/
+    .  .+   . . . . :.:\. #######       #######..:/
+      :: . . . . ::.:..:.\           .   .   ..:/
+   .   .   .  .. :  -::::.\.       | |     . .:/
+      .  :  .  .  .-:.":.::.\             ..:/
+ .      -.   . . . .: .:::.:.\.           .:/
+.   .   .  :      : ....::_:..:\   ___.  :/
+   .   .  .   .:. .. .  .: :.:.:\       :/
+     +   .   .   : . ::. :.:. .:.|\  .:/|
+     .         +   .  .  ...:: ..|  --.:|
+.      . . .   .  .  . ... :..:.."(  ..)"
+ .   .       .      :  .   .: ::/  .  .::\
+
+'everything on unix is the same, a file'
+
+Which wristwatches are Swiss wristwatches?
+
+Any noise annoys an oyster but a noisy noise annoys an oyster more.
+
+
+
+

@@ -1,0 +1,97 @@
+>DDOS attacks
+-most attacks utilize botnets
+--botnets are a collection of "zombified hosts" that can be controlled by the owner of the botnet through commands on a wide scale, such as irc, twitter, GET requests, even TCP flags
+--botnets are created by the distribution of malware, phishing campaigns, etc.
+--they are mostly used as a force for attacks
+-what is a DoS or DDoS attack?
+--the DoS is short for a Denial of Service attack. A DDoS is a Distributed Denial of Service attack. They are meant to deny service or access.
+--They are conducted for numerous reasons, money, political reasons, personal reasons, "cred", or sometimes just for fun.
+--DDoS attacks are still a threat because..........
+-numerous high profile targets were affected by the mirai botnet. about 1.2 Tbps.
+
+> pcap file stuff
+
+typical SYN flood to a target ip addr from what looks like randomly spoofed ip addresses.
+Source IPs are all different, while the src mac is the same.
+because the  target is being bombarded with SYN packets, it tries to establish connections with all these fake ip addrs which doesn't allow for actual connections.
+
+> Smurf attack
+attacker talks to router which talks to many devices to attack a target.
+
+
+>DNS Amplification
+spoof ip of the victim by using it as a respondee from a dig response. 64 byte request, 3223 byte response. 50x amplification
+
+noting unsolicited responses that your IDS is finding is a good way to see that an attack like this is happening
+
+
+generally attacks can be used to disrupt internal workings or to divert (like a smokescreen) 
+ 
+
+
+load balancer- hardware designed to look at capacity of pipes and servers that handle requests and route traffic that's too much for one server to handle and send it somewhere else to help mitigate too much flow to one server
+
+>client side attacks
+
+>>spreading malware
+-building botnets
+
+
+>>Exploiting exposed services
+-ssh
+if left open without a passwd or defaults, can be exploited with privilege escalation
+you'd be able to set an amount of login attempts
+
+-scp
+similar, but can transfer malicious files, or get juicy files found
+-telnet
+if this is open, always bad
+
+
+
+>CVEs
+
+Publicly known cybersecurity vulnerabilities
+
+
+>Tenable
+provides some synopsis of CVE
+
+
+
+
+> lou
+
+analysis of applications
+
+looking for vulnerabilities in source code as well as trying to break it dynamically
+
+have a desire to learn, have some knowledge of security and be comfortable with at least one modern programming lang
+Certs: network+,  security+, 
+
+check out OWASP top 10
+
+
+
+>look forward to a secure software dev talk from lou
+
+>CHS infosec meetup
+	first wed of every month
+	meet at a bar/pub and talk infosec stuff (youngins can have coke)
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

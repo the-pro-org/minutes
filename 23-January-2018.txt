@@ -1,0 +1,38 @@
+Meeting Notes:
+ - President: Zach Dayton
+ - Vice President: Blaine Billings
+ - Secretary: Nate Smith
+ - Treasurer: Sarah Winegar
+ - - Need to figure out how to get money...
+ - Outreach Coordinator: John Quinn
+
+CLI - tcpdump:
+ - First '-n' Stops from resolving IP address to host name
+ - Second '-n' Checks all the ports coming from packets and matches the port with the service
+CLI - cut:
+ - Used to extract sections from each line of input
+
+ARP Poisoning:
+ - What is it?
+ - - ARP Tables map IP to MAC
+ - - Spoofing MAC, saying you have the IP of a legitimate user
+ - What was in the PCAP?
+ - - Three main devices:
+ - - - Attacker - Hewlett Packard
+ - - - Victim - Dell
+ - - - Router - Cisco
+ - - Attacker wanted to find victim, and sent an ARP (Packet 54)
+ - - Attacker received victim's MAC (Packet 55)
+ - - Attacker directly sent ARP to the victim with the "source IP" set as the router's IP (Packet 56)
+ - - This way, the victim thinks the attacker is the router
+ - - Attacker was just "man-in-the-middling" the outgoing traffic from the victim
+
+Trojan:
+ - Background:
+ - - SNORT Triggered an alert after seeing Hex for "ANABILGI|"
+ - What was in the PCAP?
+ - - Two main devices:
+ - - - Attacker - Vmware
+ - - - Victim - Hewlett Packard
+ - - On packets 4, 5, 10, 32, 156, 280, 405, 531, and 652 we can see the hex
+ - - "tcp.flags.syn == 1 && tcp.flags.ack == 0" Gets first packet of every TCP conversation
